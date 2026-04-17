@@ -4,7 +4,7 @@
 <script>
   const libs = (() => {
     const { hostname, search } = window.location;
-    if (!['.aem.', '.stage.', 'local'].some((i) => hostname.includes(i))) return '/libs';
+    if (!['.aem.', '.stage.', 'local'].some((i) => hostname.includes(i))) return '/graph/docs/libs';
     const branch = new URLSearchParams(search).get('milolibs') || 'main';
     if (branch === 'local') return 'http://localhost:6456/libs';
     return branch.includes('--') ? `https://${branch}.aem.live/libs` : `https://${branch}--milo--adobecom.aem.live/libs`;
@@ -28,6 +28,15 @@
   [miloStyles, miloUtils, miloDecorate].forEach((tag) => tag.setAttribute('rel', 'preload'));
   document.head.append(miloStyles, miloUtils, miloDecorate);
 </script>
-<script src="/scripts/scripts.js" type="module"></script>
+<script>
+  (() => {
+    const el = document.createElement('script');
+    el.type = 'module';
+    el.src = window.location.origin.includes('aem.live')
+      ? new URL('./scripts/scripts.js', window.location.origin).href
+      : new URL('./graph/docs/scripts/scripts.js', window.location.origin).href;
+    document.head.appendChild(el);
+  })();
+</script>
 <style>body { display: none; }</style>
 <link rel="icon" href="data:,">

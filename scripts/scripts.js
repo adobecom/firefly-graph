@@ -55,7 +55,7 @@ const LIBS = '/graph/docs/libs';
 
 // Add any config options.
 const CONFIG = {
-  // codeRoot: '',
+  codeRoot: '/graph/docs',
   // contentRoot: '',
   // imsClientId: 'college',
   // imsScope: 'AdobeID,openid,gnav',
@@ -93,8 +93,8 @@ const miloLibs = setLibs(LIBS);
 }());
 
 (async function loadPage() {
-  const { loadArea, setConfig } = await import(`${miloLibs}/utils/utils.js`);
+  const { loadArea, setConfig, loadLana } = await import(`${miloLibs}/utils/utils.js`);
   const config = setConfig({ ...CONFIG, miloLibs });
-  console.log(config);
+  loadLana();
   await loadArea();
 }());

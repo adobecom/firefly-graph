@@ -51,7 +51,7 @@ function decorateArea(area = document) {
 const STYLES = '';
 
 // Use 'https://www.adobe.com/libs' if you cannot map '/libs' to milo's origin and ensure you don't run into CORS issues.
-const LIBS = '/libs';
+const LIBS = '/graph/docs/libs';
 
 // Add any config options.
 const CONFIG = {

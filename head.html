@@ -32,7 +32,7 @@
   (() => {
     const el = document.createElement('script');
     el.type = 'module';
-    el.src = window.location.origin.includes('aem.live')
+    el.src = (window.location.origin.includes('.aem.page') || window.location.origin.includes('aem.live'))
       ? new URL('./scripts/scripts.js', window.location.origin).href
       : new URL('./graph/docs/scripts/scripts.js', window.location.origin).href;
     document.head.appendChild(el);

@@ -56,7 +56,7 @@ const LIBS = '/graph/docs/libs';
 // Add any config options.
 const CONFIG = {
   codeRoot: '/graph/docs',
-  // contentRoot: '',
+  contentRoot: '/graph/docs',
   // imsClientId: 'college',
   // imsScope: 'AdobeID,openid,gnav',
   // geoRouting: 'off',
